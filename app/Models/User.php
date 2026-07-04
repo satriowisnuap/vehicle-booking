@@ -29,4 +29,28 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    protected $fillable = [
+        'name', 'email', 'password', 'role_id', 'approval_level', 'phone', 'is_active',
+    ];
+
+    public function role()
+    {
+        return $this->belongsTo(Role::class);
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role?->slug === 'admin';
+    }
+
+    public function isApprover(): bool
+    {
+        return $this->role?->slug === 'approver';
+    }
+
+    public function bookingApprovals()
+    {
+        return $this->hasMany(BookingApproval::class, 'approver_id');
+    }
 }
