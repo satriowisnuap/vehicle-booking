@@ -1,4 +1,4 @@
-<x-app-layout>
+<x-layouts.sidebar-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold leading-tight text-gray-800">Dashboard Admin</h2>
     </x-slot>
@@ -10,4 +10,4 @@
             </div>
         </div>
     </div>
-</x-app-layout>
+</x-layouts.sidebar-layout>
